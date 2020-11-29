@@ -1,0 +1,27 @@
+:not(input):not(textarea),
+:not(input):not(textarea)::after,
+:not(input):not(textarea)::before {
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+input, button, textarea, :focus {
+    outline: none;
+}
+
+body {
+    background-color: #1B1C1D;
+    padding: 30px 50px;
+}
+
+.Main {
+    position: absolute;
+    width: 100%;
+    min-height: 20px;
+    max-height: 20px;
+    top: 0;
+    left: 0;
+    right: 0;
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
+}
