@@ -53,7 +53,7 @@ export default class User {
     this.birthDate = birthDate;
     // User.checkAge(age ? age : undefined, this.birthDate) ? this.age = age : this.age = undefined;
     this.age = age;
-    this.grade = grade;
+    this.grade = Number(grade);
     this.name = name;
     this.lastname = lastname;
     // User.checkEmail(email) ? this.email = email : this.email = undefined;
@@ -79,6 +79,11 @@ export default class User {
     const emailError = {
       propName: 'email',
       error: '',
+    }
+
+    const gradeError = {
+      propName: 'grade',
+      error: ''
     }
 
     if (!this.dni) {
@@ -113,6 +118,14 @@ export default class User {
       }
     }
 
+    if(!this.grade) {
+      gradeError.error = 'missing prop'
+    } else {
+      if (this.grade > 20) {
+        gradeError.error = 'the note exceeds the limit [20]'
+      }
+    }
+
     const missingProps: any [] = []
     !this.code && missingProps.push({
       propName: 'code',
@@ -129,16 +142,17 @@ export default class User {
     });
     birthDateError.error !== ''&& missingProps.push(birthDateError);
     ageError.error !== '' && missingProps.push(ageError);
-    !this.grade && missingProps.push({
-      name: 'grade',
-      error: 'missing prop'
-    });
+    gradeError.error !== '' && missingProps.push(gradeError);
+    // !this.grade && missingProps.push({
+    //   propName: 'grade',
+    //   error: 'missing prop'
+    // });
     !this.name && missingProps.push({
-      name: 'name',
+      propName: 'name',
       error: 'missing prop'
     });
     !this.lastname && missingProps.push({
-      name: 'lastname',
+      propName: 'lastname',
       error: 'missing prop'
     });
     emailError.error !== '' && missingProps.push(emailError);

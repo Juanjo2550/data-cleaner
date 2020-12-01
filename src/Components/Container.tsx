@@ -69,9 +69,6 @@ export default function Container() {
         }
       })
     });
-
-    console.log(failures);
-
     return failures;
   }
 
@@ -96,6 +93,9 @@ export default function Container() {
     ipcRenderer.send('data');
 
     ipcRenderer.on('data-replay', handleAsyncData);
+
+    console.log(data);
+
     return (): void => {
       ipcRenderer.removeAllListeners('data-replay');
     };
@@ -168,7 +168,7 @@ export default function Container() {
                               <List.Header>{obc as string}</List.Header>
                             Errores:<br />
                             {mostFailureRaw[obc as string].map(err => (
-                              <List.Description><i>{err.errorName}</i> : <span style={{color: '#BB463B'}}>{err.count}</span></List.Description>
+                              <List.Description><i>{err.errorName}</i> : <span style={{color: '#BB463B'}}>{err.count + 1}</span></List.Description>
                               ))}
                             </List.Content>
                           </List.Item>
