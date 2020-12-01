@@ -1,14 +1,28 @@
-# electron-react-typescript-template
-Template for a Electron + React + Typescript proyects
+# data-cleaner
+Trabajo de limpieza de datos para la materia de Fundamentos de sistemas de información
 
-## Usage
-First you need to install al dependencies: 
+## Tecnologías usadas
+* Node Js
+* TypeScript
+* Electron Js
+* React Js
+* xlsx
+## Uso
+`NodeJs 11.0` o alguna versión posterior y `npm` (opcional `yarn`) tiene que estar instalado previamente
+### Instalar dependencias
 ```
 yarn add
 ```
-For start the proyect:
+or
+```
+npm install
+```
+
+### Ejecutar
 ```
 yarn start
 ```
-The principal Electron main process is in `src/index.ts`
-The principal React file is `src/App.tsx`
+or
+```
+npm start
+```
